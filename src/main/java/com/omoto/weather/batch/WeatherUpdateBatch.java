@@ -34,7 +34,7 @@ public class WeatherUpdateBatch {
     /**
      * Scheduler that will run hourly and bring all the 
      */
-    @Scheduled(cron = "0 0/1 * * * ?")
+    @Scheduled(cron = "1 */1 * * * ?")
     public void hourlyWeatherUpdate(){
         ObjectMapper objectMapper=new ObjectMapper();
         String responseJson=new CommonUtils().getJson("http://api.openweathermap.org/data/2.5/weather?q=Bangalore,IN&appid=dfef04093fa06a7ddb963979e8c48341");

@@ -14,7 +14,7 @@ import java.util.Collection;
 @Transactional
 public interface WeatherRepository extends CrudRepository<Weather, Long> {
 
-    @Query(value = "SELECT * FROM weather where LOCATION=:location and CAST(CURRENTTIME as date)  = '2016-12-25' ", nativeQuery = true)
+    @Query(value = "SELECT * FROM weather where LOCATION=:location and CAST(CURRENTTIME as date)  = CAST(NOW() AS DATE) ", nativeQuery = true)
     Collection<Weather> todaysForcast(@Param("location") String location);
 
 
@@ -22,3 +22,4 @@ public interface WeatherRepository extends CrudRepository<Weather, Long> {
 
 
 }
+
